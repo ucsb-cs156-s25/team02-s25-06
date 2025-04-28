@@ -12,7 +12,7 @@ TODO: Fill in this table with correct information.
 | Table                     | Name         | Github Id |
 |---------------------------|--------------|-----------|
 | UCSBDiningCommonsMenuItem |              |           |
-| UCSBOrganization          |              |           |
+| UCSBOrganization          |Timothy Nguyen| timothy878|
 | RecommendationRequest     |              |           |
 | MenuItemReview            |  Yarwin Liu  | yarwinliu |
 | HelpRequest               |              |           |
