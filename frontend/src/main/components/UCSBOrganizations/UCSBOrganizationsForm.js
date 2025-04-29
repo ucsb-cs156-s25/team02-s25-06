@@ -60,7 +60,6 @@ function UCSBOrganizationsForm({
           Org Translation Short
         </Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-orgTranslationShort"}
           id="orgTranslationShort"
           type="text"
           isInvalid={Boolean(errors.orgTranslationShort)}
@@ -75,7 +74,6 @@ function UCSBOrganizationsForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="orgTranslation">Org Translation</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-orgTranslation"}
           id="orgTranslation"
           type="text"
           isInvalid={Boolean(errors.orgTranslation)}
@@ -98,7 +96,7 @@ function UCSBOrganizationsForm({
         />
       </Form.Group>
 
-      <Button type="submit" data-testid={testIdPrefix + "-submit"}>
+      <Button type="submit">
         {buttonLabel}
       </Button>
       <Button
