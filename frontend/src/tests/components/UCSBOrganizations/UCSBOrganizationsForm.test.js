@@ -73,11 +73,9 @@ describe("UCSBOrganizationsForms tests", () => {
     expect(screen.getByLabelText("Org Translation")).toHaveValue(
       ucsbOrganizationsFixtures.oneUCSBOrganization.orgTranslation,
     );
-    if (ucsbOrganizationsFixtures.oneUCSBOrganization.inactive) {
-      expect(screen.getByLabelText("Inactive")).toBeChecked();
-    } else {
-      expect(screen.getByLabelText("Inactive")).not.toBeChecked();
-    }
+    expect(screen.getByLabelText("Inactive").checked).toBe(
+      ucsbOrganizationsFixtures.oneUCSBOrganization.inactive,
+    );
   });
 
   test("that navigate(-1) is called when Cancel is clicked", async () => {
