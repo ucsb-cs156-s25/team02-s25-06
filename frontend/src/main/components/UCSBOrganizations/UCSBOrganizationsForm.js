@@ -91,7 +91,6 @@ function UCSBOrganizationsForm({
           type="checkbox"
           id="inactive"
           label="Inactive"
-          data-testid={testIdPrefix + "-inactive"}
           {...register("inactive")}
         />
       </Form.Group>
