@@ -78,13 +78,13 @@ function UCSBOrganizationsForm({
           data-testid={testIdPrefix + "-orgTranslation"}
           id="orgTranslation"
           type="text"
-          isInvalid={Boolean(errors.orgTranslationShort)}
+          isInvalid={Boolean(errors.orgTranslation)}
           {...register("orgTranslation", {
             required: "Org Translation is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.orgTranslationShort?.message}
+          {errors.orgTranslation?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
