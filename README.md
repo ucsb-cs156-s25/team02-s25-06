@@ -15,7 +15,7 @@ TODO: Fill in this table with correct information.
 | UCSBOrganization          |Timothy Nguyen| timothy878|
 | RecommendationRequest     |              |           |
 | MenuItemReview            |  Yarwin Liu  | yarwinliu |
-| HelpRequest               |              |           |
+| HelpRequest               |  Riya Gupta  |RiyaGupta1234|
 | Articles                  |              |           |
 
 Remember though, that in spite of these initial  assignments, it is still
