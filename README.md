@@ -16,7 +16,7 @@ TODO: Fill in this table with correct information.
 | RecommendationRequest     |              |           |
 | MenuItemReview            |  Yarwin Liu  | yarwinliu |
 | HelpRequest               |  Riya Gupta  |RiyaGupta1234|
-| Articles                  |              |           |
+| Articles                  | Sanjana Jilla|sanjanajilla913|
 
 Remember though, that in spite of these initial  assignments, it is still
 a team project.  Please help other team members to finish their work
