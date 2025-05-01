@@ -1,16 +1,16 @@
 import React from "react";
-import UCSBOrganizations from "main/components/UCSBOrganizations/UCSBOrganizationsTable";
+import UCSBOrganizationsTable from "main/components/UCSBOrganizations/UCSBOrganizationsTable";
 import { ucsbOrganizationsFixtures } from "fixtures/ucsbOrganizationsFixtures";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import { http, HttpResponse } from "msw";
 
 export default {
   title: "components/UCSBOrganizations/UCSBOrganizationsTable",
-  component: RestaurantTable,
+  component: UCSBOrganizationsTable,
 };
 
 const Template = (args) => {
-  return <UCSBOrganizations {...args} />;
+  return <UCSBOrganizationsTable {...args} />;
 };
 
 export const Empty = Template.bind({});
