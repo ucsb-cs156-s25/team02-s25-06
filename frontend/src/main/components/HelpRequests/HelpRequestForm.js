@@ -43,16 +43,11 @@ function HelpRequestForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-requesterEmail"}
           id="requesterEmail"
           type="text"
           isInvalid={Boolean(errors.requesterEmail)}
           {...register("requesterEmail", {
             required: "Requester Email is required.",
-            maxLength: {
-              value: 255,
-              message: "Max length 255 characters",
-            },
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -63,16 +58,11 @@ function HelpRequestForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="teamId">Team ID</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-teamId"}
           id="teamId"
           type="text"
           isInvalid={Boolean(errors.teamId)}
           {...register("teamId", {
             required: "Team ID is required.",
-            maxLength: {
-              value: 255,
-              message: "Max length 255 characters",
-            },
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -85,16 +75,11 @@ function HelpRequestForm({
           Table Or Breakout Room
         </Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-tableOrBreakoutRoom"}
           id="tableOrBreakoutRoom"
           type="text"
           isInvalid={Boolean(errors.tableOrBreakoutRoom)}
           {...register("tableOrBreakoutRoom", {
             required: "Table or Breakout Room is required.",
-            maxLength: {
-              value: 255,
-              message: "Max length 255 characters",
-            },
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -105,14 +90,13 @@ function HelpRequestForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="requestTime">Request Time (iso format)</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-requestTime"}
           id="requestTime"
           type="datetime-local"
           step="1"
           isInvalid={Boolean(errors.requestTime)}
           {...register("requestTime", {
             required: "Request time is required.",
-            pattern: { isodate_regex },
+            pattern: isodate_regex,
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -142,17 +126,10 @@ function HelpRequestForm({
 
       <Form.Group className="mb-3">
         <Form.Label htmlFor="solved">Solved?</Form.Label>
-        <Form.Check
-          data-testid={testIdPrefix + "-solved"}
-          type="checkbox"
-          id="solved"
-          {...register("solved")}
-        />
+        <Form.Check type="checkbox" id="solved" {...register("solved")} />
       </Form.Group>
 
-      <Button type="submit" data-testid={testIdPrefix + "-submit"}>
-        {buttonLabel}
-      </Button>
+      <Button type="submit">{buttonLabel}</Button>
       <Button
         variant="Secondary"
         onClick={() => navigate(-1)}
