@@ -108,10 +108,11 @@ function HelpRequestForm({
           data-testid={testIdPrefix + "-requestTime"}
           id="requestTime"
           type="datetime-local"
+          step="1"
           isInvalid={Boolean(errors.requestTime)}
           {...register("requestTime", {
             required: "Request time is required.",
-            pattern: isodate_regex,
+            pattern: { isodate_regex },
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -145,9 +146,7 @@ function HelpRequestForm({
           data-testid={testIdPrefix + "-solved"}
           type="checkbox"
           id="solved"
-          {...register("solved", {
-            required: "Solved is required.",
-          })}
+          {...register("solved")}
         />
       </Form.Group>
 
