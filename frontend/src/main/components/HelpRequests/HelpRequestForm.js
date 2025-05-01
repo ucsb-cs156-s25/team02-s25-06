@@ -17,6 +17,11 @@ function HelpRequestForm({
 
   const navigate = useNavigate();
 
+  // Stryker disable Regex
+  const isodate_regex =
+    /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
+  // Stryker restore Regex
+
   const testIdPrefix = "HelpRequestForm";
 
   return (
@@ -36,7 +41,7 @@ function HelpRequestForm({
       )}
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="requesterEmail">RequesterEmail</Form.Label>
+        <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-requesterEmail"}
           id="requesterEmail"
@@ -56,19 +61,92 @@ function HelpRequestForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="teamID">TeamID</Form.Label>
+        <Form.Label htmlFor="teamId">Team ID</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-teamID"}
-          id="teamID"
+          data-testid={testIdPrefix + "-teamId"}
+          id="teamId"
           type="text"
-          isInvalid={Boolean(errors.teamID)}
-          {...register("teamID", {
+          isInvalid={Boolean(errors.teamId)}
+          {...register("teamId", {
             required: "Team ID is required.",
+            maxLength: {
+              value: 255,
+              message: "Max length 255 characters",
+            },
           })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.teamID?.message}
+          {errors.teamId?.message}
         </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="tableOrBreakoutRoom">Table Or Breakout Room</Form.Label>
+        <Form.Control
+          data-testid={testIdPrefix + "-tableOrBreakoutRoom"}
+          id="tableOrBreakoutRoom"
+          type="text"
+          isInvalid={Boolean(errors.tableOrBreakoutRoom)}
+          {...register("tableOrBreakoutRoom", {
+            required: "Table or Breakout Room is required.",
+            maxLength: {
+              value: 255,
+              message: "Max length 255 characters",
+            },
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.tableOrBreakoutRoom?.message}
+        </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="requestTime">Request Time (iso format)</Form.Label>
+        <Form.Control
+          data-testid={testIdPrefix + "-requestTime"}
+          id="requestTime"
+          type="datetime-local"
+          isInvalid={Boolean(errors.requestTime)}
+          {...register("requestTime", {
+            required: "Request time is required.",
+            pattern: isodate_regex,
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.requestTime?.message}
+        </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="explanation">Explanation</Form.Label>
+        <Form.Control
+          data-testid={testIdPrefix + "-explanation"}
+          id="explanation"
+          type="text"
+          isInvalid={Boolean(errors.explanation)}
+          {...register("explanation", {
+            required: "Explanation is required.",
+            maxLength: {
+              value: 255,
+              message: "Max length 255 characters",
+            },
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.explanation?.message}
+        </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="solved">Solved?</Form.Label>
+        <Form.Check
+          data-testid={testIdPrefix + "-solved"}
+          type="checkbox"
+          id="solved"
+          {...register("solved", {
+            required: "Solved is required.",
+          })}
+        />
       </Form.Group>
 
       <Button type="submit" data-testid={testIdPrefix + "-submit"}>
