@@ -54,7 +54,8 @@ export default function UCSBOrganizationsTable({
     },
     {
       Header: "Inactive",
-      accessor: "inactive",
+      accessor: (row) => String(row.inactive),
+      id: "inactive",
     },
   ];
 
