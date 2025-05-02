@@ -120,7 +120,7 @@ describe("HelpRequestCreatePage tests", () => {
       target: { value: "2025-05-01T00:30:57.000" },
     });
     fireEvent.change(explanationInput, { target: { value: "problem" } });
-    fireEvent.change(solved, {
+    fireEvent.change(solvedInput, {
       target: { value: false },
     });
     fireEvent.click(createButton);
