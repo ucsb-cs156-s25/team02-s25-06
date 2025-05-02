@@ -108,7 +108,7 @@ describe("MenuItemReviewTable tests", () => {
     );
     expect(deleteButton).toBeInTheDocument();
     expect(deleteButton).toHaveClass("btn-danger");
-  });
+  }); 
 
   test("Has the expected column headers, content for ordinary user", () => {
     // arrange
