@@ -46,7 +46,7 @@ function MenuItemReviewForm({
             required: "itemId is required.",
             maxLength: {
               value: 30,
-              message: "Max length 30 characters",
+              message: "itemId: Max length 30 characters",
             },
           })}
         />
@@ -66,7 +66,7 @@ function MenuItemReviewForm({
             required: "reviewerEmail is required.",
             maxLength: {
               value: 255,
-              message: "Max length 255 characters",
+              message: "reviewerEmail: Max length 255 characters",
             },
           })}
         />
@@ -110,7 +110,7 @@ function MenuItemReviewForm({
             required: "comments are required.",
             maxLength: {
               value: 255,
-              message: "Max length 255 characters",
+              message: "comments: Max length 255 characters",
             },
           })}
         />
@@ -122,16 +122,11 @@ function MenuItemReviewForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="dateReviewed">DateReviewed</Form.Label>
         <Form.Control
-          data-testid={testIdPrefix + "-dateReviewed"}
           id="dateReviewed"
           type="datetime-local"
           isInvalid={Boolean(errors.dateReviewed)}
           {...register("dateReviewed", {
             required: "dateReviewed is required.",
-            maxLength: {
-              value: 255,
-              message: "Max length 255 characters",
-            },
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -139,7 +134,7 @@ function MenuItemReviewForm({
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Button type="submit" data-testid={testIdPrefix + "-submit"}>
+      <Button type="submit">
         {buttonLabel}
       </Button>
       <Button
