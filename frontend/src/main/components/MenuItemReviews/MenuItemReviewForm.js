@@ -41,7 +41,7 @@ function MenuItemReviewForm({
           data-testid={testIdPrefix + "-itemId"}
           id="itemId"
           type="number"
-          isInvalid={Boolean(errors.name)}
+          isInvalid={Boolean(errors.itemId)}
           {...register("itemId", {
             required: "itemId is required.",
             maxLength: {
@@ -55,13 +55,33 @@ function MenuItemReviewForm({
         </Form.Control.Feedback>
       </Form.Group>
 
+      {/* <Form.Group className="mb-3">
+        <Form.Label htmlFor="itemId">ItemId</Form.Label>
+        <Form.Control
+          data-testid={testIdPrefix + "-itemId"}
+          id="itemId"
+          type="number"
+          isInvalid={Boolean(errors.itemId)}
+          {...register("itemId", {
+            required: "itemId are required.",
+            maxLength: {
+              value: 30,
+              message: "Max length 30 characters",
+            },
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.itemId?.message}
+        </Form.Control.Feedback>
+      </Form.Group> */}
+
       <Form.Group className="mb-3">
         <Form.Label htmlFor="reviewerEmail">ReviewerEmail</Form.Label>
         <Form.Control
           data-testid={testIdPrefix + "-reviewerEmail"}
           id="reviewerEmail"
           type="text"
-          isInvalid={Boolean(errors.name)}
+          isInvalid={Boolean(errors.reviewerEmail)}
           {...register("reviewerEmail", {
             required: "reviewerEmail is required.",
             maxLength: {
@@ -81,7 +101,7 @@ function MenuItemReviewForm({
           data-testid={testIdPrefix + "-stars"}
           id="stars"
           type="number"
-          isInvalid={Boolean(errors.name)}
+          isInvalid={Boolean(errors.stars)}
           {...register("stars", {
             required: "stars is required.",
             min: {
@@ -125,7 +145,7 @@ function MenuItemReviewForm({
           data-testid={testIdPrefix + "-dateReviewed"}
           id="dateReviewed"
           type="datetime-local"
-          isInvalid={Boolean(errors.name)}
+          isInvalid={Boolean(errors.dateReviewed)}
           {...register("dateReviewed", {
             required: "dateReviewed is required.",
             maxLength: {
