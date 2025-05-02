@@ -109,8 +109,8 @@ function MenuItemReviewForm({
           {...register("comments", {
             required: "comments are required.",
             maxLength: {
-                value: 255,
-                message: "Max length 255 characters",
+              value: 255,
+              message: "Max length 255 characters",
             },
           })}
         />
