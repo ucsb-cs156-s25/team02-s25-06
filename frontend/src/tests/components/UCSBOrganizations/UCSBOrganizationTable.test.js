@@ -236,7 +236,7 @@ describe("UCSBOrganizationsTable tests", () => {
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
     expect(axiosMock.history.delete[0].params).toEqual({ id: 4 });
   });
-  test("Inactive column renders checkboxes with correct checked state", () => {
+  test("Inactive column renders checkboxes with correct checked state!", () => {
     const currentUser = currentUserFixtures.adminUser;
 
     render(
