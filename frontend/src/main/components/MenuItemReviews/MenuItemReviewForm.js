@@ -55,26 +55,6 @@ function MenuItemReviewForm({
         </Form.Control.Feedback>
       </Form.Group>
 
-      {/* <Form.Group className="mb-3">
-        <Form.Label htmlFor="itemId">ItemId</Form.Label>
-        <Form.Control
-          data-testid={testIdPrefix + "-itemId"}
-          id="itemId"
-          type="number"
-          isInvalid={Boolean(errors.itemId)}
-          {...register("itemId", {
-            required: "itemId are required.",
-            maxLength: {
-              value: 30,
-              message: "Max length 30 characters",
-            },
-          })}
-        />
-        <Form.Control.Feedback type="invalid">
-          {errors.itemId?.message}
-        </Form.Control.Feedback>
-      </Form.Group> */}
-
       <Form.Group className="mb-3">
         <Form.Label htmlFor="reviewerEmail">ReviewerEmail</Form.Label>
         <Form.Control

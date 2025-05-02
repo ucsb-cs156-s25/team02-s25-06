@@ -1,8 +1,8 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import RestaurantForm from "main/components/Restaurants/RestaurantForm";
-import { restaurantFixtures } from "fixtures/restaurantFixtures";
+import MenuItemReviewForm from "main/components/MenuItemReviews/MenuItemReviewForm";
+import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -13,17 +13,23 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedNavigate,
 }));
 
-describe("RestaurantForm tests", () => {
+describe("MenuItemReviewForm tests", () => {
   const queryClient = new QueryClient();
 
-  const expectedHeaders = ["Name", "Description"];
-  const testId = "RestaurantForm";
+  const expectedHeaders = [
+    "ItemId",
+    "ReviewerEmail",
+    "Stars",
+    "Comments",
+    "DateReviewed",
+  ];
+  const testId = "MenuItemReviewForm";
 
   test("renders correctly with no initialContents", async () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm />
+          <MenuItemReviewForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -40,7 +46,7 @@ describe("RestaurantForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm initialContents={restaurantFixtures.oneRestaurant} />
+          <MenuItemReviewForm initialContents={menuItemReviewFixtures.oneMIR} />
         </Router>
       </QueryClientProvider>,
     );
@@ -60,7 +66,7 @@ describe("RestaurantForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm />
+          <MenuItemReviewForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -76,7 +82,7 @@ describe("RestaurantForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm />
+          <MenuItemReviewForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -85,15 +91,50 @@ describe("RestaurantForm tests", () => {
     const submitButton = screen.getByText(/Create/);
     fireEvent.click(submitButton);
 
-    await screen.findByText(/Name is required/);
-    expect(screen.getByText(/Description is required/)).toBeInTheDocument();
+    await screen.findByText(/itemId is required/);
+    expect(screen.getByText(/reviewerEmail is required/)).toBeInTheDocument();
+    expect(screen.getByText(/stars is required/)).toBeInTheDocument();
+    expect(screen.getByText(/comments are required/)).toBeInTheDocument();
+    expect(screen.getByText(/dateReviewed is required/)).toBeInTheDocument();
 
-    const nameInput = screen.getByTestId(`${testId}-name`);
-    fireEvent.change(nameInput, { target: { value: "a".repeat(31) } });
+    const nameInput = screen.getByTestId(`${testId}-itemId`);
+    fireEvent.change(nameInput, { target: { value: "1".repeat(31) } });
     fireEvent.click(submitButton);
 
     await waitFor(() => {
       expect(screen.getByText(/Max length 30 characters/)).toBeInTheDocument();
+    });
+
+    const nameInput2 = screen.getByTestId(`${testId}-reviewerEmail`);
+    fireEvent.change(nameInput2, { target: { value: "a".repeat(256) } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
+    });
+
+    const nameInput3 = screen.getByTestId(`${testId}-stars`);
+    fireEvent.change(nameInput3, { target: { value: "-1" } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Stars must be at least 0/)).toBeInTheDocument();
+    });
+
+    const nameInput4 = screen.getByTestId(`${testId}-stars`);
+    fireEvent.change(nameInput4, { target: { value: "200" } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Stars must be at most 5/)).toBeInTheDocument();
+    });
+
+    const nameInput5 = screen.getByTestId(`${testId}-comments`);
+    fireEvent.change(nameInput5, { target: { value: "a".repeat(256) } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
     });
   });
 });
