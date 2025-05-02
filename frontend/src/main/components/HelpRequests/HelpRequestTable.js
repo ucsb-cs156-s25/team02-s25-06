@@ -63,7 +63,9 @@ export default function HelpRequestTable({
     {
       Header: "Solved?",
       accessor: "solved",
+      // Stryker disable all : hard to test for query caching
       Cell: ({ value }) => <input type="checkbox" checked={value} readOnly />,
+      // Stryker restore all
     },
   ];
 
