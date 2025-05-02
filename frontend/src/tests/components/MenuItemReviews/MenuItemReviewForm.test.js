@@ -102,7 +102,9 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/itemId: Max length 30 characters/)).toBeInTheDocument();
+      expect(
+        screen.getByText(/itemId: Max length 30 characters/),
+      ).toBeInTheDocument();
     });
 
     const nameInput2 = screen.getByTestId(`${testId}-reviewerEmail`);
@@ -110,7 +112,9 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/reviewerEmail: Max length 255 characters/)).toBeInTheDocument();
+      expect(
+        screen.getByText(/reviewerEmail: Max length 255 characters/),
+      ).toBeInTheDocument();
     });
 
     const nameInput3 = screen.getByTestId(`${testId}-stars`);
@@ -134,8 +138,9 @@ describe("MenuItemReviewForm tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/comments: Max length 255 characters/)).toBeInTheDocument();
+      expect(
+        screen.getByText(/comments: Max length 255 characters/),
+      ).toBeInTheDocument();
     });
-
   });
 });
