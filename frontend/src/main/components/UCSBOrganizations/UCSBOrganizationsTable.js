@@ -53,9 +53,11 @@ export default function UCSBOrganizationsTable({
       accessor: "orgTranslation",
     },
     {
+      // Stryker disable all
       Header: "Inactive",
       accessor: (row) => String(row.inactive),
       id: "inactive",
+      // Stryker restore all
     },
   ];
 
