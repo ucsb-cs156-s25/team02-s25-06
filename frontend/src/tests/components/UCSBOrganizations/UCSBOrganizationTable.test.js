@@ -236,4 +236,27 @@ describe("UCSBOrganizationsTable tests", () => {
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
     expect(axiosMock.history.delete[0].params).toEqual({ id: 4 });
   });
+  test("Inactive column renders checkboxes with correct checked state", () => {
+    const currentUser = currentUserFixtures.adminUser;
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <UCSBOrganizationsTable
+            UCSBOrganizations={ucsbOrganizationsFixtures.threeUCSBOrganizations}
+            currentUser={currentUser}
+          />
+        </MemoryRouter>
+      </QueryClientProvider>
+    );
+
+    const checkbox0 = screen.getByTestId(`${testId}-cell-row-0-col-inactive`).querySelector('input[type="checkbox"]');
+    const checkbox1 = screen.getByTestId(`${testId}-cell-row-1-col-inactive`).querySelector('input[type="checkbox"]');
+
+    expect(checkbox0).toBeInTheDocument();
+    expect(checkbox1).toBeInTheDocument();
+
+    expect(checkbox0.checked).toBe(false); 
+    expect(checkbox1.checked).toBe(true);  
+  });
 });

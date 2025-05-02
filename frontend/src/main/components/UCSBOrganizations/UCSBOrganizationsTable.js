@@ -54,8 +54,7 @@ export default function UCSBOrganizationsTable({
     },
     {
       Header: "Inactive",
-      // accessor: (row) => String(row.inactive),\
-      Cell: ({ value }) => <input type="checkbox" checked={value} readOnly />,
+      accessor: (row) => String(row.inactive),
       id: "inactive",
     },
   ];
