@@ -17,8 +17,22 @@ jest.mock("react-router-dom", () => ({
 describe("MenuItemReviewTable tests", () => {
   const queryClient = new QueryClient();
 
-  const expectedHeaders = ["id", "ItemId", "ReviewerEmail", "Stars", "Comments", "DateReviewed"];
-  const expectedFields = ["id", "itemId", "reviewerEmail", "stars", "comments", "dateReviewed"];
+  const expectedHeaders = [
+    "id",
+    "ItemId",
+    "ReviewerEmail",
+    "Stars",
+    "Comments",
+    "DateReviewed",
+  ];
+  const expectedFields = [
+    "id",
+    "itemId",
+    "reviewerEmail",
+    "stars",
+    "comments",
+    "dateReviewed",
+  ];
   const testId = "MenuItemReviewTable";
 
   test("renders empty table correctly", () => {
@@ -108,7 +122,7 @@ describe("MenuItemReviewTable tests", () => {
     );
     expect(deleteButton).toBeInTheDocument();
     expect(deleteButton).toHaveClass("btn-danger");
-  }); 
+  });
 
   test("Has the expected column headers, content for ordinary user", () => {
     // arrange
@@ -138,25 +152,25 @@ describe("MenuItemReviewTable tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent(
-        "1",
-      );
-      expect(
-        screen.getByTestId(`${testId}-cell-row-0-col-itemId`),
-      ).toHaveTextContent("1");
-  
-      expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
-        "2",
-      );
-      expect(
-        screen.getByTestId(`${testId}-cell-row-1-col-itemId`),
-      ).toHaveTextContent("2");
-  
-      expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(
-        "3",
-      );
-      expect(
-        screen.getByTestId(`${testId}-cell-row-2-col-itemId`),
-      ).toHaveTextContent("1");
+      "1",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-itemId`),
+    ).toHaveTextContent("1");
+
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent(
+      "2",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-1-col-itemId`),
+    ).toHaveTextContent("2");
+
+    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent(
+      "3",
+    );
+    expect(
+      screen.getByTestId(`${testId}-cell-row-2-col-itemId`),
+    ).toHaveTextContent("1");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
@@ -223,12 +237,11 @@ describe("MenuItemReviewTable tests", () => {
 
     // assert - check that the expected content is rendered
     expect(
-        await screen.findByTestId(`${testId}-cell-row-0-col-id`),
-      ).toHaveTextContent("1");
-      expect(
-        screen.getByTestId(`${testId}-cell-row-0-col-itemId`),
-      ).toHaveTextContent("1");
-  
+      await screen.findByTestId(`${testId}-cell-row-0-col-id`),
+    ).toHaveTextContent("1");
+    expect(
+      screen.getByTestId(`${testId}-cell-row-0-col-itemId`),
+    ).toHaveTextContent("1");
 
     const deleteButton = screen.getByTestId(
       `${testId}-cell-row-0-col-Delete-button`,
