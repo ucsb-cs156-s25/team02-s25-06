@@ -63,6 +63,7 @@ export default function HelpRequestTable({
     {
       Header: "Solved?",
       accessor: "solved",
+      Cell: ({ value }) => <input type="checkbox" checked={value} readOnly />,
     },
   ];
 
