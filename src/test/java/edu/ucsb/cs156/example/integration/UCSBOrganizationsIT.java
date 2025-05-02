@@ -93,7 +93,6 @@ public class UCSBOrganizationsIT {
                                 .inactive(true)
                                 .build();
 
-                when(ucsbOrganizationsRepository.save(eq(boo))).thenReturn(boo);
 
                 // act
                 MvcResult response = mockMvc.perform(
