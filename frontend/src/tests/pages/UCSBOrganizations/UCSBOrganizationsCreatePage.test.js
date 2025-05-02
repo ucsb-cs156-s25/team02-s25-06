@@ -115,7 +115,7 @@ describe("UCSBOrganizationsCreatePage tests", () => {
     });
     fireEvent.change(inactiveInput, { target: { value: false } });
     fireEvent.click(createButton);
-    
+
     await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
 
     expect(axiosMock.history.post[0].params).toEqual({

@@ -35,12 +35,14 @@ export default function UCSBOrganizationsEditPage({ storybook = false }) {
       orgCode: ucsborganization.orgCode,
       orgTranslationShort: ucsborganization.orgTranslationShort,
       orgTranslation: ucsborganization.orgTranslation,
-      inactive: ucsborganization.inactive
-    }, 
+      inactive: ucsborganization.inactive,
+    },
   });
 
   const onSuccess = (ucsborganization) => {
-    toast(`Organization Updated - id: ${ucsborganization.id} orgCode: ${ucsborganization.orgCode}`);
+    toast(
+      `Organization Updated - id: ${ucsborganization.id} orgCode: ${ucsborganization.orgCode}`,
+    );
   };
 
   const mutation = useBackendMutation(

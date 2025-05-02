@@ -48,7 +48,9 @@ describe("UCSBOrganizationsEditPage tests", () => {
       axiosMock
         .onGet("/api/systemInfo")
         .reply(200, systemInfoFixtures.showingNeither);
-      axiosMock.onGet("/api/ucsborganizations", { params: { id: 17 } }).timeout();
+      axiosMock
+        .onGet("/api/ucsborganizations", { params: { id: 17 } })
+        .timeout();
     });
 
     const queryClient = new QueryClient();
@@ -63,7 +65,9 @@ describe("UCSBOrganizationsEditPage tests", () => {
         </QueryClientProvider>,
       );
       await screen.findByText("Edit Organization");
-      expect(screen.queryByTestId("Organization-orgCode")).not.toBeInTheDocument();
+      expect(
+        screen.queryByTestId("Organization-orgCode"),
+      ).not.toBeInTheDocument();
       restoreConsole();
     });
   });
@@ -80,13 +84,15 @@ describe("UCSBOrganizationsEditPage tests", () => {
       axiosMock
         .onGet("/api/systemInfo")
         .reply(200, systemInfoFixtures.showingNeither);
-      axiosMock.onGet("/api/ucsborganizations", { params: { id: 17 } }).reply(200, {
-        id: 17,
-        orgCode: "ACM",
-        orgTranslationShort: "Association Comp Machine",
-        orgTranslation: "Association of Computing Machinery",
-        inactive: false,
-      });
+      axiosMock
+        .onGet("/api/ucsborganizations", { params: { id: 17 } })
+        .reply(200, {
+          id: 17,
+          orgCode: "ACM",
+          orgTranslationShort: "Association Comp Machine",
+          orgTranslation: "Association of Computing Machinery",
+          inactive: false,
+        });
       axiosMock.onPut("/api/ucsborganizations").reply(200, {
         id: 17,
         orgCode: "ACM1",
@@ -111,7 +117,9 @@ describe("UCSBOrganizationsEditPage tests", () => {
 
       const idField = screen.getByTestId("UCSBOrganizationsForm-id");
       const orgCodeField = screen.getByTestId("UCSBOrganizationsForm-orgCode");
-      const orgTranslationShortField = screen.getByLabelText("Org Translation Short");
+      const orgTranslationShortField = screen.getByLabelText(
+        "Org Translation Short",
+      );
       const orgTranslationField = screen.getByLabelText("Org Translation");
       const inactiveField = screen.getByLabelText("Inactive");
 
@@ -124,7 +132,9 @@ describe("UCSBOrganizationsEditPage tests", () => {
       expect(orgTranslationShortField).toBeInTheDocument();
       expect(orgTranslationShortField).toHaveValue("Association Comp Machine");
       expect(orgTranslationField).toBeInTheDocument();
-      expect(orgTranslationField).toHaveValue("Association of Computing Machinery");
+      expect(orgTranslationField).toHaveValue(
+        "Association of Computing Machinery",
+      );
       expect(inactiveField).toBeInTheDocument();
       expect(inactiveField).not.toBeChecked();
 
@@ -140,7 +150,6 @@ describe("UCSBOrganizationsEditPage tests", () => {
         target: { value: "Association of Computing Machinery1" },
       });
       fireEvent.click(inactiveField);
-
 
       fireEvent.click(submitButton);
 
