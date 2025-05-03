@@ -80,7 +80,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
         public void logged_in_user_can_get_all_menuitemreviews() throws Exception {
 
                 // arrange
-                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
+                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00");
 
                 //MenuItemReview has these fields: 
                 // long itemId; //id of the menu item being reviewed, not the review itself
@@ -97,7 +97,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                                 .dateReviewed(ldt1)
                                 .build();
 
-                // LocalDateTime ldt2 = LocalDateTime.parse("2022-03-11T00:00:00");
+                // LocalDateTime ldt2 = LocalDateTime.parse("2022-03-11T00:00");
 
                 ArrayList<MenuItemReview> expectedMIRs = new ArrayList<>();
 
@@ -122,7 +122,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
         public void an_admin_user_can_post_a_new_menuitemreview() throws Exception {
                 // arrange
 
-                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
+                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00");
 
                 MenuItemReview mir1 = MenuItemReview.builder()
                                 .itemId(1)
@@ -137,7 +137,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
                 //postMenuItenReviewController.postMenuItemReview(mir1);
                 // act
                 MvcResult response = mockMvc.perform(
-                                post("/api/menuitemreview/post?itemId=1&reviewerEmail=cgaucho@ucsb.edu&stars=5&comments=Great_food!&dateReviewed=2022-01-03T00:00:00")
+                                post("/api/menuitemreview/post?itemId=1&reviewerEmail=cgaucho@ucsb.edu&stars=5&comments=Great_food!&dateReviewed=2022-01-03T00:00")
                                                 .with(csrf())) 
                                 .andExpect(status().isOk()).andReturn();
 
@@ -182,7 +182,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
 
                 // arrange
 
-                LocalDateTime ldt1 = LocalDateTime.parse("2022-04-26T00:00:00");
+                LocalDateTime ldt1 = LocalDateTime.parse("2022-04-26T00:00");
 
               MenuItemReview menuItemReview1 = MenuItemReview.builder()
                     .itemId(5)
@@ -213,8 +213,8 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
         public void admin_can_edit_an_existing_menuitemreview() throws Exception {
                 // arrange
 
-                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
-                LocalDateTime ldt2 = LocalDateTime.parse("2023-01-03T00:00:00");
+                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00");
+                LocalDateTime ldt2 = LocalDateTime.parse("2023-01-03T00:00");
 
                 MenuItemReview mirOrig = MenuItemReview.builder()
                                 .itemId(1)
@@ -257,7 +257,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
         public void admin_cannot_edit_menuitemreview_that_does_not_exist() throws Exception {
                 // arrange
 
-                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
+                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00");
 
                 MenuItemReview mirEdited = MenuItemReview.builder()
                                 .itemId(1)
@@ -294,7 +294,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase {
         public void admin_can_delete_a_menuitemreview() throws Exception {
                 // arrange
 
-                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
+                LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00");
 
                 MenuItemReview mir1 = MenuItemReview.builder()
                                 .itemId(1)
