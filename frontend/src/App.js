@@ -137,12 +137,12 @@ function App() {
             <Route
               exact
               path="/menuItemReview/edit/:id"
-              element={<UCSBDatesEditPage />}
+              element={<MenuItemReviewEditPage />}
             />
             <Route
               exact
               path="/menuItemReview/create"
-              element={<UCSBDatesCreatePage />}
+              element={<MenuItemReviewCreatePage />}
             />
           </>
         )}
