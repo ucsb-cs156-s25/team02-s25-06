@@ -27,8 +27,6 @@ public class UCSBOrganizationsWebIT extends WebTestCase {
     @Test
     public void admin_user_can_create_edit_delete_ucsborganization() throws Exception {
 
-        page.getByText("UCSBOrganizations").click();
-
         UCSBOrganizations organization1 = UCSBOrganizations.builder()
                 .orgCode("cc")
                 .orgTranslationShort("cool club")
