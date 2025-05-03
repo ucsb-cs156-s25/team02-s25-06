@@ -5,9 +5,9 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import axios from "axios";
-import AxiosMockAdapter from "axios-mock-adapter";
+import AxiosMockAdapter from "axios-mock-adapter"; 
 
-const mockedNavigate = jest.fn();
+const mockedNavigate = jest.fn(); 
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -210,7 +210,7 @@ describe("MenuItemReviewTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/menuItemReviews/edit/1"),
+      expect(mockedNavigate).toHaveBeenCalledWith("/menuItemReview/edit/1"),
     );
   });
 
@@ -220,7 +220,7 @@ describe("MenuItemReviewTable tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
     axiosMock
-      .onDelete("/api/menuItemReviews")
+      .onDelete("/api/menuItemReview")
       .reply(200, { message: "Menu Item Review deleted" });
 
     // act - render the component

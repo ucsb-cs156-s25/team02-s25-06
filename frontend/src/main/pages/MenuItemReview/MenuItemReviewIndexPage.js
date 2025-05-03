@@ -1,8 +1,10 @@
+
+
 import React from "react";
 import { useBackend } from "main/utils/useBackend";
 
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import MenuItemReviewTable from "main/components/MenuItemReviews/MenuItemReviewTable";
+import MIRTable from "main/components/MenuItemReviews/MenuItemReviewTable";
 import { useCurrentUser, hasRole } from "main/utils/currentUser";
 import { Button } from "react-bootstrap";
 
@@ -29,7 +31,7 @@ export default function MenuItemReviewIndexPage() {
           href="/menuItemReview/create"
           style={{ float: "right" }}
         >
-          Create MenuItemReview
+          Create Menu Item Review
         </Button>
       );
     }
@@ -39,8 +41,8 @@ export default function MenuItemReviewIndexPage() {
     <BasicLayout>
       <div className="pt-2">
         {createButton()}
-        <h1>MenuItemReview</h1>
-        <MenuItemReviewTable menuItemReview={menuItemReview} currentUser={currentUser} />
+        <h1>Menu Item Review</h1>
+        <MIRTable menuItemReview={menuItemReview} currentUser={currentUser} />
       </div>
     </BasicLayout>
   );
