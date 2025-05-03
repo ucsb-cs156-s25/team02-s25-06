@@ -53,14 +53,13 @@ public class UCSBOrganizationsWebIT extends WebTestCase {
         page.getByText("UCSBOrganizations").click();
 
         assertThat(page.getByText("Create Organization")).not().isVisible();
-        assertThat(page.getByTestId("UCSBOrganizations-cell-row-0-col-orgCode")).not().isVisible();
     }
-    // @Test
-    // public void admin_can_create_ucsborganizations() throws Exception {
-    //     setupUser(true);
+    @Test
+    public void admin_can_create_ucsborganizations() throws Exception {
+        setupUser(true);
 
-    //     page.getByText("UCSBOrganizations").click();
+        page.getByText("UCSBOrganizations").click();
 
-    //     assertThat(page.getByText("Create Organization")).isVisible();
-    // }
+        assertThat(page.getByText("Create Organization")).isVisible();
+    }
 }
