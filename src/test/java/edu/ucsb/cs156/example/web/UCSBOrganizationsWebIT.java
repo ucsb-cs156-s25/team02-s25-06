@@ -29,13 +29,6 @@ public class UCSBOrganizationsWebIT extends WebTestCase {
 
         page.getByText("UCSBOrganizations").click();
 
-        // page.getByText("Create Organization").click();
-        // assertThat(page.getByText("Create New UCSB Organization")).isVisible();
-        // page.getByLabel("Org Code").fill("CC");
-        // page.getByLabel("Org Translation Short").fill("Cool C");
-        // page.getByLabel("Org Translation").fill("Cool Club");
-        // page.getByLabel("Inactive").check();
-        // page.getByLabel("Create").click();
         UCSBOrganizations organization1 = UCSBOrganizations.builder()
                 .orgCode("cc")
                 .orgTranslationShort("cool club")
