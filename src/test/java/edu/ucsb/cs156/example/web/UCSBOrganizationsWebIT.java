@@ -43,9 +43,9 @@ public class UCSBOrganizationsWebIT extends WebTestCase {
 
         assertThat(page.getByTestId("UCSBOrganizationsTable-cell-row-0-col-orgCode")).hasText("cc");
 
-        page.getByTestId("UCSBOrganizations-cell-row-0-col-Delete-button").click();
+        page.getByTestId("UCSBOrganizationsTable-cell-row-0-col-Delete-button").click();
 
-        assertThat(page.getByTestId("UCSBOrganizations-cell-row-0-col-orgCode")).not().isVisible();
+        assertThat(page.getByTestId("UCSBOrganizationsTable-cell-row-0-col-orgCode")).not().isVisible();
     }
 
     @Test
