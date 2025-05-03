@@ -72,9 +72,11 @@ export default function AppNavbar({
                   <Nav.Link as={Link} to="/helpRequests">
                     Help Requests
                   </Nav.Link>
+
                   <Nav.Link as={Link} to="/menuItemReview">
                     Menu Item Reviews
                   </Nav.Link>
+               
                 </>
               ) : (
                 <></>
