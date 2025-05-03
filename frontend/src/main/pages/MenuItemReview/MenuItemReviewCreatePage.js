@@ -9,7 +9,7 @@ export default function MenuItemReviewCreatePage({ storybook = false }) {
     url: "/api/menuItemReview/post",
     method: "POST",
     params: {
-      itemId: menuItemReview.itemId, 
+      itemId: menuItemReview.itemId,
       reviewerEmail: menuItemReview.reviewerEmail,
       stars: menuItemReview.stars,
       comments: menuItemReview.comments,
@@ -19,7 +19,7 @@ export default function MenuItemReviewCreatePage({ storybook = false }) {
 
   const onSuccess = (menuItemReview) => {
     toast(
-      `New restaurant Created - itemId: ${menuItemReview.itemId} reviewerEmail: ${menuItemReview.reviewerEmail} stars: ${menuItemReview.stars} comments: ${menuItemReview.comments} dateReviewed: ${menuItemReview.dateReviewed}`,
+      `New Menu Item Review Created - itemId: ${menuItemReview.itemId} reviewerEmail: ${menuItemReview.reviewerEmail} stars: ${menuItemReview.stars} comments: ${menuItemReview.comments} dateReviewed: ${menuItemReview.dateReviewed}`,
     );
   };
 
