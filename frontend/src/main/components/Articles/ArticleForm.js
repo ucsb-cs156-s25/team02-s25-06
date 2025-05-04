@@ -89,6 +89,21 @@ function ArticleForm({ initialContents, submitAction, buttonLabel = "Create", })
                 </Form.Control.Feedback>
             </Form.Group>
 
+            <Form.Group className="mb-3">
+                <Form.Label htmlFor="dateAdded">Date Added</Form.Label>
+                <Form.Control
+                    data-testid={`${testIdPrefix}-dateAdded`}
+                    id="dateAdded"
+                    type="datetime-local"
+                    isInvalid={Boolean(errors.dateAdded)}
+                    {...register("dateAdded", {
+                        required: "Date Added is required.",
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.dateAdded?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
 
             <Button type="submit" data-testid={testIdPrefix + "-submit"}>
                 {buttonLabel}
