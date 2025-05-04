@@ -5,9 +5,9 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import axios from "axios";
-import AxiosMockAdapter from "axios-mock-adapter"; 
+import AxiosMockAdapter from "axios-mock-adapter";
 
-const mockedNavigate = jest.fn(); 
+const mockedNavigate = jest.fn();
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -43,7 +43,7 @@ describe("MenuItemReviewTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable menuItemReviews={[]} currentUser={currentUser} />
+          <MenuItemReviewTable menuItemReview={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>,
     );
@@ -71,7 +71,7 @@ describe("MenuItemReviewTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewTable
-            menuItemReviews={menuItemReviewFixtures.threeMIRs}
+            menuItemReview={menuItemReviewFixtures.threeMIRs}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -133,7 +133,7 @@ describe("MenuItemReviewTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewTable
-            menuItemReviews={menuItemReviewFixtures.threeMIRs}
+            menuItemReview={menuItemReviewFixtures.threeMIRs}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -185,7 +185,7 @@ describe("MenuItemReviewTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewTable
-            menuItemReviews={menuItemReviewFixtures.threeMIRs}
+            menuItemReview={menuItemReviewFixtures.threeMIRs}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -228,7 +228,7 @@ describe("MenuItemReviewTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewTable
-            menuItemReviews={menuItemReviewFixtures.threeMIRs}
+            menuItemReview={menuItemReviewFixtures.threeMIRs}
             currentUser={currentUser}
           />
         </MemoryRouter>

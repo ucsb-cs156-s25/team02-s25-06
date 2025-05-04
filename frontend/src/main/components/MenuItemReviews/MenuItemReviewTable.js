@@ -6,9 +6,9 @@ import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
 } from "main/utils/menuItemReviewUtils";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
- 
+
 export default function MenuItemReviewTable({
   menuItemReview,
   currentUser,

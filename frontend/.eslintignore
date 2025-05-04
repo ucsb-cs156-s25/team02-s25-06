@@ -1,0 +1,4 @@
+# Ignore built bundles
+*.bundle.js
+dist/
+build/
