@@ -16,19 +16,19 @@ const Template = (args) => {
 export const Empty = Template.bind({});
 
 Empty.args = {
-  menuItemReviews: [],
+  menuItemReview: [],
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-  menuItemReviews: menuItemReviewFixtures.threeMIRs,
+  menuItemReview: menuItemReviewFixtures.threeMIRs,
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-  menuItemReviews: menuItemReviewFixtures.threeMIRs,
+  menuItemReview: menuItemReviewFixtures.threeMIRs,
   currentUser: currentUserFixtures.adminUser,
 };
 
