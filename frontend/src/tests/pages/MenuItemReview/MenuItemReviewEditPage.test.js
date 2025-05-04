@@ -62,7 +62,7 @@ describe("MenuItemReviewEditPage tests", () => {
           </MemoryRouter>
         </QueryClientProvider>,
       );
-      await screen.findByText("Edit MenuItemReview");
+      await screen.findByText("Edit Menu Item Review");
       expect(
         screen.queryByTestId("MenuItemReview-name"),
       ).not.toBeInTheDocument();

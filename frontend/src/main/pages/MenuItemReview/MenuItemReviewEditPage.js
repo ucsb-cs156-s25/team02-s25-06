@@ -66,7 +66,7 @@ export default function MenuItemReviewEditPage({ storybook = false }) {
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Edit MenuItemReview</h1>
+        <h1>Edit Menu Item Review</h1>
         {menuItemReview && (
           <MenuItemReviewForm
             submitAction={onSubmit}

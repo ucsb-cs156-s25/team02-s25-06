@@ -48,6 +48,10 @@ function MenuItemReviewForm({
               value: 30,
               message: "itemId: Max length 30 characters",
             },
+            min: {
+              value: 0,
+              message: "itemId: must be at least 0",
+            },
           })}
         />
         <Form.Control.Feedback type="invalid">
