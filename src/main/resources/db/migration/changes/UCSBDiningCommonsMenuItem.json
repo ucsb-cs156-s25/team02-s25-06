@@ -29,7 +29,8 @@
                       "nullable": false
                     },
                     "name": "ID",
-                    "type": "BIGINT"
+                    "type": "BIGINT",
+                    "autoIncrement": true
                   }
                 },
                 {
