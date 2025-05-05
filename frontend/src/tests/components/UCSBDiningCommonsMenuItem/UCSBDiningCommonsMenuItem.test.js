@@ -2,7 +2,10 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import UCSBDiningCommonsMenuItemForm from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm";
-import { _ucsbDiningCommonsMenuItemFixtures, ucsbDiningCommonsMenuItemFixtures } from "fixtures/ucsbDiningCommonsMenuItemFixtures";
+import {
+  _ucsbDiningCommonsMenuItemFixtures,
+  ucsbDiningCommonsMenuItemFixtures,
+} from "fixtures/ucsbDiningCommonsMenuItemFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 //import UCSBDiningCommonsMenuItemFormStories from "stories/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm.stories.js/UCSBDiningCommonsMenuItemForm.stories";
@@ -37,12 +40,15 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
     });
   });
 
-  
   test("renders correctly when passing in initialContents", async () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <UCSBDiningCommonsMenuItemForm initialContents={ucsbDiningCommonsMenuItemFixtures.oneucsbDiningCommonsMenuItem} />
+          <UCSBDiningCommonsMenuItemForm
+            initialContents={
+              ucsbDiningCommonsMenuItemFixtures.oneucsbDiningCommonsMenuItem
+            }
+          />
         </Router>
       </QueryClientProvider>,
     );
@@ -91,14 +97,16 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
     expect(screen.getByText(/Name is required/)).toBeInTheDocument();
     expect(screen.getByText(/Station is required/)).toBeInTheDocument();
 
-    const diningCommonsCodeInput = screen.getByTestId(`${testId}-diningCommonsCode`);
-    fireEvent.change(diningCommonsCodeInput, { target: { value: "a".repeat(256) } });
+    const diningCommonsCodeInput = screen.getByTestId(
+      `${testId}-diningCommonsCode`,
+    );
+    fireEvent.change(diningCommonsCodeInput, {
+      target: { value: "a".repeat(256) },
+    });
     fireEvent.click(submitButton);
 
     await waitFor(() => {
       expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
     });
   });
-  
 });
-
