@@ -91,6 +91,51 @@ function RecommendationRequestForm({
         </Form.Control.Feedback>
       </Form.Group>
 
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="dateRequested">Date Requested</Form.Label>
+        <Form.Control
+          data-testid={testIdPrefix + "-dateRequested"}
+          id="dateRequested"
+          type="date"
+          isInvalid={Boolean(errors.dateRequested)}
+          {...register("dateRequested", {
+            required: "Date Requested is required.",
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.dateRequested?.message}
+        </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label htmlFor="dateNeeded">Date Needed</Form.Label>
+        <Form.Control
+          data-testid={testIdPrefix + "-dateNeeded"}
+          id="dateNeeded"
+          type="date"
+          isInvalid={Boolean(errors.dateNeeded)}
+          {...register("dateNeeded", {
+            required: "Date Requested is required.",
+          })}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.dateNeeded?.message}
+        </Form.Control.Feedback>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="done">
+        <Form.Check
+          type="checkbox"
+          label="Done"
+          data-testid={`${testIdPrefix}-done`}
+          isInvalid={!!errors.done}
+          {...register("done")}
+        />
+        <Form.Control.Feedback type="invalid">
+          {errors.done?.message}
+        </Form.Control.Feedback>
+      </Form.Group>
+
       <Button type="submit" data-testid={testIdPrefix + "-submit"}>
         {buttonLabel}
       </Button>
