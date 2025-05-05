@@ -138,7 +138,7 @@ describe("RecommendationRequestForm tests", () => {
 
     await waitFor(() => {
       expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
-      expect(nameInput).toHaveClass("is-invalid");
+      expect(nameInput2).toHaveClass("is-invalid");
     });
   });
 });
