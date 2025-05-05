@@ -46,7 +46,7 @@ function RecommendationRequestForm({
             required: "Requester email is required.",
             maxLength: {
               value: 255,
-              message: "Max length 255 characters",
+              message: "Max length 255 characters for requester email",
             },
           })}
         />
@@ -66,7 +66,7 @@ function RecommendationRequestForm({
             required: "Professor email is required.",
             maxLength: {
               value: 255,
-              message: "Max length 255 characters",
+              message: "Max length 255 characters for professor email",
             },
           })}
         />

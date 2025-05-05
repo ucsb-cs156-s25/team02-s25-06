@@ -128,7 +128,7 @@ describe("RecommendationRequestForm tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
+      expect(screen.getByText(/Max length 255 characters for professor email/)).toBeInTheDocument();
       expect(nameInput).toHaveClass("is-invalid");
     });
 
@@ -137,7 +137,7 @@ describe("RecommendationRequestForm tests", () => {
     fireEvent.click(submitButton);
 
     await waitFor(() => {
-      expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
+      expect(screen.getByText(/Max length 255 characters for requester email/)).toBeInTheDocument();
       expect(nameInput2).toHaveClass("is-invalid");
     });
   });
