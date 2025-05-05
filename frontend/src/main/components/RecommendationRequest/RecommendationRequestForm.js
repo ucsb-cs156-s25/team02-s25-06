@@ -45,7 +45,7 @@ function RecommendationRequestForm({
           {...register("requesterEmail", {
             required: "Requester email is required.",
             maxLength: {
-              value: 30,
+              value: 255,
               message: "Max length 255 characters",
             },
           })}
@@ -61,7 +61,7 @@ function RecommendationRequestForm({
           data-testid={testIdPrefix + "-professorEmail"}
           id="professorEmail"
           type="text"
-          isInvalid={Boolean(errors.requesterEmail)}
+          isInvalid={Boolean(errors.professorEmail)}
           {...register("professorEmail", {
             required: "Professor email is required.",
             maxLength: {

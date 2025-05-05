@@ -108,5 +108,13 @@ describe("RecommendationRequestForm tests", () => {
     await waitFor(() => {
       expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
     });
+
+    const nameInput2 = screen.getByTestId(`${testId}-requesterEmail`);
+    fireEvent.change(nameInput2, { target: { value: "a".repeat(256) } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
+    });
   });
 });
