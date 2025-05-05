@@ -29,7 +29,10 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <UCSBDiningCommonsMenuItemTable UCSBDiningCommonsMenuItems={[]} currentUser={currentUser} />
+          <UCSBDiningCommonsMenuItemTable
+            UCSBDiningCommonsMenuItems={[]}
+            currentUser={currentUser}
+          />
         </MemoryRouter>
       </QueryClientProvider>,
     );
@@ -47,7 +50,7 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
       expect(fieldElement).not.toBeInTheDocument();
     });
   });
-  
+
   test("Has the expected column headers, content and buttons for admin user", () => {
     // arrange
     const currentUser = currentUserFixtures.adminUser;
@@ -57,7 +60,9 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <UCSBDiningCommonsMenuItemTable
-            UCSBDiningCommonsMenuItems={ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem}
+            UCSBDiningCommonsMenuItems={
+              ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem
+            }
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -112,13 +117,14 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <UCSBDiningCommonsMenuItemTable
-            UCSBDiningCommonsMenuItems={ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem}
+            UCSBDiningCommonsMenuItems={
+              ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem
+            }
             currentUser={currentUser}
           />
         </MemoryRouter>
       </QueryClientProvider>,
     );
-
 
     // assert
     expectedHeaders.forEach((headerText) => {
@@ -145,7 +151,6 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
       screen.getByTestId(`${testId}-cell-row-1-col-station`),
     ).toHaveTextContent("Entree Specials");
 
-
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
   });
@@ -160,7 +165,9 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <UCSBDiningCommonsMenuItemTable
-            UCSBDiningCommonsMenuItems={ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem}
+            UCSBDiningCommonsMenuItems={
+              ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem
+            }
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -185,7 +192,9 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/ucsbdiningcommonsmenuitem/edit/8"),
+      expect(mockedNavigate).toHaveBeenCalledWith(
+        "/ucsbdiningcommonsmenuitem/edit/8",
+      ),
     );
   });
 
@@ -200,14 +209,16 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
 
     // act - render the component
     render(
-        <QueryClientProvider client={queryClient}>
-          <MemoryRouter>
-            <UCSBDiningCommonsMenuItemTable
-              UCSBDiningCommonsMenuItems={ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem}
-              currentUser={currentUser}
-            />
-          </MemoryRouter>
-        </QueryClientProvider>,
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <UCSBDiningCommonsMenuItemTable
+            UCSBDiningCommonsMenuItems={
+              ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem
+            }
+            currentUser={currentUser}
+          />
+        </MemoryRouter>
+      </QueryClientProvider>,
     );
 
     // assert - check that the expected content is rendered
@@ -231,5 +242,4 @@ describe("UCSBDiningCommonsMenuItemTable tests", () => {
     await waitFor(() => expect(axiosMock.history.delete.length).toBe(1));
     expect(axiosMock.history.delete[0].params).toEqual({ id: 8 });
   });
-  
 });
