@@ -116,6 +116,12 @@ describe("RecommendationRequestForm tests", () => {
     expect(
       screen.getByTestId("RecommendationRequestForm-submit"),
     ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("RecommendationRequestForm-professorEmail"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("RecommendationRequestForm-requesterEmail"),
+    ).toBeInTheDocument();
 
     const nameInput = screen.getByTestId(`${testId}-professorEmail`);
     fireEvent.change(nameInput, { target: { value: "a".repeat(256) } });
@@ -123,6 +129,7 @@ describe("RecommendationRequestForm tests", () => {
 
     await waitFor(() => {
       expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
+      expect(nameInput).toHaveClass("is-invalid");
     });
 
     const nameInput2 = screen.getByTestId(`${testId}-requesterEmail`);
@@ -131,6 +138,7 @@ describe("RecommendationRequestForm tests", () => {
 
     await waitFor(() => {
       expect(screen.getByText(/Max length 255 characters/)).toBeInTheDocument();
+      expect(nameInput).toHaveClass("is-invalid");
     });
   });
 });
