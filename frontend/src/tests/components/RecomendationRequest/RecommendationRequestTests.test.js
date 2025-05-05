@@ -1,9 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-
-import RestaurantForm from "main/components/RecommendationRequest/RecommendationRequestForm";
 import { recommendationrequestFixtures } from "fixtures/recommendationrequestFixtures";
-
 import { QueryClient, QueryClientProvider } from "react-query";
 import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm";
 
