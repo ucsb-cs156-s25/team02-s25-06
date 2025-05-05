@@ -83,7 +83,7 @@ function RecommendationRequestForm({
           type="text"
           isInvalid={Boolean(errors.explanation)}
           {...register("explanation", {
-            required: "explanation is required.",
+            required: "Explanation is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
@@ -115,7 +115,7 @@ function RecommendationRequestForm({
           type="date"
           isInvalid={Boolean(errors.dateNeeded)}
           {...register("dateNeeded", {
-            required: "Date Requested is required.",
+            required: "Date Needed is required.",
           })}
         />
         <Form.Control.Feedback type="invalid">
