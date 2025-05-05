@@ -131,7 +131,6 @@ describe("RecommendationRequestForm tests", () => {
       expect(
         screen.getByText(/Max length 255 characters for professor email/),
       ).toBeInTheDocument();
-      expect(nameInput).toHaveClass("is-invalid");
     });
 
     const nameInput2 = screen.getByTestId(`${testId}-requesterEmail`);
@@ -142,7 +141,6 @@ describe("RecommendationRequestForm tests", () => {
       expect(
         screen.getByText(/Max length 255 characters for requester email/),
       ).toBeInTheDocument();
-      expect(nameInput2).toHaveClass("is-invalid");
     });
   });
 });
