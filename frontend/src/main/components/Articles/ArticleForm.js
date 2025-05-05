@@ -38,7 +38,6 @@ function ArticleForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="title">Title</Form.Label>
         <Form.Control
-          data-testid={`${testIdPrefix}-title`}
           id="title"
           type="text"
           isInvalid={Boolean(errors.title)}
@@ -52,7 +51,6 @@ function ArticleForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="url">URL</Form.Label>
         <Form.Control
-          data-testid={`${testIdPrefix}-url`}
           id="url"
           type="text"
           isInvalid={Boolean(errors.url)}
@@ -66,7 +64,6 @@ function ArticleForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="explanation">Explanation</Form.Label>
         <Form.Control
-          data-testid={`${testIdPrefix}-explanation`}
           id="explanation"
           type="text"
           isInvalid={Boolean(errors.explanation)}
@@ -80,7 +77,6 @@ function ArticleForm({
       <Form.Group className="mb-3">
         <Form.Label htmlFor="email">Email</Form.Label>
         <Form.Control
-          data-testid={`${testIdPrefix}-email`}
           id="email"
           type="email"
           isInvalid={Boolean(errors.email)}
@@ -92,22 +88,17 @@ function ArticleForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
-        <Form.Label htmlFor="dateAdded">Date Added</Form.Label>
         <Form.Control
-          data-testid={`${testIdPrefix}-dateAdded`}
           id="dateAdded"
           type="datetime-local"
           isInvalid={Boolean(errors.dateAdded)}
-          {...register("dateAdded", {
-            required: "Date Added is required.",
-          })}
         />
         <Form.Control.Feedback type="invalid">
           {errors.dateAdded?.message}
         </Form.Control.Feedback>
       </Form.Group>
 
-      <Button type="submit" data-testid={testIdPrefix + "-submit"}>
+      <Button type="submit" >
         {buttonLabel}
       </Button>
       <Button
