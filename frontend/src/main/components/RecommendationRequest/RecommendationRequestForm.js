@@ -65,7 +65,7 @@ function RecommendationRequestForm({
           {...register("professorEmail", {
             required: "Professor email is required.",
             maxLength: {
-              value: 30,
+              value: 255,
               message: "Max length 255 characters",
             },
           })}
