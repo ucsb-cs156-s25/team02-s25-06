@@ -52,10 +52,7 @@ export default function ArticleTable({
       Header: "Explanation",
       accessor: "explanation",
     },
-    {
-      Header: "DateAdded",
-      accessor: "dateAdded",
-    },
+
     {
       Header: "Email",
       accessor: "email",
