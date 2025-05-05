@@ -101,12 +101,21 @@ describe("RecommendationRequestForm tests", () => {
     expect(screen.getByText(/Date Needed is required/)).toBeInTheDocument();
     //expect(screen.getByText(/Done is required/)).toBeInTheDocument();
 
-
-    expect(screen.getByTestId("RecommendationRequestForm-dateRequested")).toBeInTheDocument();
-    expect(screen.getByTestId("RecommendationRequestForm-dateNeeded")).toBeInTheDocument();
-    expect(screen.getByTestId("RecommendationRequestForm-explanation")).toBeInTheDocument();
-    expect(screen.getByTestId("RecommendationRequestForm-done")).toBeInTheDocument();
-    expect(screen.getByTestId("RecommendationRequestForm-submit")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("RecommendationRequestForm-dateRequested"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("RecommendationRequestForm-dateNeeded"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("RecommendationRequestForm-explanation"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("RecommendationRequestForm-done"),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByTestId("RecommendationRequestForm-submit"),
+    ).toBeInTheDocument();
 
     const nameInput = screen.getByTestId(`${testId}-professorEmail`);
     fireEvent.change(nameInput, { target: { value: "a".repeat(256) } });

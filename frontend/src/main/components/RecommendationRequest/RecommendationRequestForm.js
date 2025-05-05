@@ -128,7 +128,6 @@ function RecommendationRequestForm({
           type="checkbox"
           label="Done"
           data-testid={`${testIdPrefix}-done`}
-          isInvalid={!!errors.done}
           {...register("done")}
         />
         <Form.Control.Feedback type="invalid">
