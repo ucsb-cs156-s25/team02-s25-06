@@ -5,7 +5,6 @@ import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
 export default function ArticleCreatePage({ storybook = false }) {
-
   const objectToAxiosParams = (article) => ({
     url: "/api/articles/post",
     method: "POST",
@@ -14,14 +13,12 @@ export default function ArticleCreatePage({ storybook = false }) {
       url: article.url,
       explanation: article.explanation,
       email: article.email,
-      dateAdded: article.localDateTime
+      dateAdded: article.localDateTime,
     },
   });
 
   const onSuccess = (article) => {
-    toast(
-      `New Article Created - id: ${article.id} title: ${article.title}`,
-    );
+    toast(`New Article Created - id: ${article.id} title: ${article.title}`);
   };
 
   const mutation = useBackendMutation(

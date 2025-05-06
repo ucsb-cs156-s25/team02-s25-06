@@ -86,7 +86,7 @@ function ArticleForm({
           {errors.email?.message}
         </Form.Control.Feedback>
       </Form.Group>
-      
+
       <Form.Group className="mb-3">
         <Form.Label htmlFor="dateAdded">Date Added</Form.Label>
         <Form.Control
@@ -99,8 +99,6 @@ function ArticleForm({
           {errors.localDateTime?.message}
         </Form.Control.Feedback>
       </Form.Group>
-
-
 
       <Button type="submit">{buttonLabel}</Button>
       <Button
