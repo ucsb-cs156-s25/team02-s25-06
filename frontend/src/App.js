@@ -3,8 +3,6 @@ import HomePage from "main/pages/HomePage";
 import ProfilePage from "main/pages/ProfilePage";
 import AdminUsersPage from "main/pages/AdminUsersPage";
 
-
-
 import ArticleIndexPage from "main/pages/Article/ArticleIndexPage";
 import ArticleCreatePage from "main/pages/Article/ArticleCreatePage";
 import ArticleEditPage from "main/pages/Article/ArticleEditPage";
@@ -63,7 +61,7 @@ function App() {
               element={<UCSBDatesCreatePage />}
             />
           </>
-        )}        
+        )}
         {hasRole(currentUser, "ROLE_USER") && (
           <>
             <Route exact path="/articles" element={<ArticleIndexPage />} />
