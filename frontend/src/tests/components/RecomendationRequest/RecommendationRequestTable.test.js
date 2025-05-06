@@ -25,7 +25,8 @@ describe("RecommendationRequestTable tests", () => {
     "Date Requested",
     "Date Needed",
     "Done",
-  ];  const expectedFields = [
+  ];
+  const expectedFields = [
     "requesterEmail",
     "professorEmail",
     "explanation",
@@ -43,7 +44,10 @@ describe("RecommendationRequestTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <RecommendationRequestTable recommendationrequests={[]} currentUser={currentUser} />
+          <RecommendationRequestTable
+            recommendationrequests={[]}
+            currentUser={currentUser}
+          />
         </MemoryRouter>
       </QueryClientProvider>,
     );
@@ -71,7 +75,9 @@ describe("RecommendationRequestTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <RecommendationRequestTable
-            recommendationrequests={recommendationrequestFixtures.threeRecommendationRequests}
+            recommendationrequests={
+              recommendationrequestFixtures.threeRecommendationRequests
+            }
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -125,7 +131,9 @@ describe("RecommendationRequestTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <RecommendationRequestTable
-            recommendationrequests={recommendationrequestFixtures.threeRecommendationRequests}
+            recommendationrequests={
+              recommendationrequestFixtures.threeRecommendationRequests
+            }
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -157,7 +165,6 @@ describe("RecommendationRequestTable tests", () => {
       screen.getByTestId(`${testId}-cell-row-1-col-professorEmail`),
     ).toHaveTextContent("test_professor@test.com");
 
-
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
   });
@@ -171,7 +178,9 @@ describe("RecommendationRequestTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <RecommendationRequestTable
-            recommendationrequests={recommendationrequestFixtures.threeRecommendationRequests}
+            recommendationrequests={
+              recommendationrequestFixtures.threeRecommendationRequests
+            }
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -193,7 +202,9 @@ describe("RecommendationRequestTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/recommendationrequest/edit/1"),
+      expect(mockedNavigate).toHaveBeenCalledWith(
+        "/recommendationrequest/edit/1",
+      ),
     );
   });
 
@@ -211,13 +222,15 @@ describe("RecommendationRequestTable tests", () => {
         return [400, { message: "Invalid id" }];
       }
     });
-    
+
     // act - render the component
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <RecommendationRequestTable
-            recommendationrequests={recommendationrequestFixtures.threeRecommendationRequests}
+            recommendationrequests={
+              recommendationrequestFixtures.threeRecommendationRequests
+            }
             currentUser={currentUser}
           />
         </MemoryRouter>
