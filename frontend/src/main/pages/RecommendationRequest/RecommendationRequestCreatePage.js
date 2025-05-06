@@ -20,7 +20,7 @@ export default function RecommendationRequestCreatePage({ storybook = false }) {
 
   const onSuccess = (recommendationrequest) => {
     toast(
-      `New recommendationrequest Created - id: ${recommendationrequest.id} name: ${recommendationrequest.requesterEmail}`,
+      `New recommendationrequest Created - id: ${recommendationrequest.id} requesterEmail: ${recommendationrequest.requesterEmail}`,
     );
   };
 
