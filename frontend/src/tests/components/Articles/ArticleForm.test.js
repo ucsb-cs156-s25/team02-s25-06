@@ -44,17 +44,16 @@ describe("ArticleForm tests", () => {
         </Router>
       </QueryClientProvider>,
     );
-  
+
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
-  
+
     const submitButton = screen.getByText(/Create/);
     fireEvent.click(submitButton);
-  
+
     await waitFor(() => {
       expect(screen.getByText(/Date is required/)).toBeInTheDocument();
     });
   });
-  
 
   test("renders correctly when passing in initialContents", async () => {
     render(
