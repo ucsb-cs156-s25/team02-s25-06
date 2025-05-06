@@ -149,7 +149,7 @@ function App() {
             />
             <Route
               exact
-              path="/ucsbdiningcommonsmenuite/create"
+              path="/ucsbdiningcommonsmenuitem/create"
               element={<UCSBDiningCommonsMenuItemCreatePage />}
             />
           </>
