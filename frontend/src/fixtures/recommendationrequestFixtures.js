@@ -8,7 +8,7 @@ const recommendationrequestFixtures = {
     dateNeeded: "2025-01-01",
     done: true,
   },
-  threeDates: [
+  threeRecommendationRequests: [
     {
       id: 1,
       requesterEmail: "blah",
