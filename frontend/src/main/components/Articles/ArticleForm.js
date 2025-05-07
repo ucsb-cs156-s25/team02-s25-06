@@ -88,13 +88,15 @@ function ArticleForm({
       </Form.Group>
 
       <Form.Group className="mb-3">
+        <Form.Label htmlFor="dateAdded">Date Added</Form.Label>
         <Form.Control
           id="dateAdded"
           type="datetime-local"
-          isInvalid={Boolean(errors.dateAdded)}
+          isInvalid={Boolean(errors.localDateTime)}
+          {...register("localDateTime", { required: "Date is required." })}
         />
         <Form.Control.Feedback type="invalid">
-          {errors.dateAdded?.message}
+          {errors.localDateTime?.message}
         </Form.Control.Feedback>
       </Form.Group>
 

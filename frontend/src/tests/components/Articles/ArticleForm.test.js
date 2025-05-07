@@ -36,6 +36,25 @@ describe("ArticleForm tests", () => {
     });
   });
 
+  test("validates that localDateTime is required", async () => {
+    render(
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <ArticleForm />
+        </Router>
+      </QueryClientProvider>,
+    );
+
+    expect(await screen.findByText(/Create/)).toBeInTheDocument();
+
+    const submitButton = screen.getByText(/Create/);
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Date is required/)).toBeInTheDocument();
+    });
+  });
+
   test("renders correctly when passing in initialContents", async () => {
     render(
       <QueryClientProvider client={queryClient}>
