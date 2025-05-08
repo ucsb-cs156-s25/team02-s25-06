@@ -62,7 +62,9 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText(/Create UCSBDiningCommonsMenuItem/)).toBeInTheDocument();
+      expect(
+        screen.getByText(/Create UCSBDiningCommonsMenuItem/),
+      ).toBeInTheDocument();
     });
     const button = screen.getByText(/Create UCSBDiningCommonsMenuItem/);
     expect(button).toHaveAttribute("href", "/ucsbdiningcommonsmenuitem/create");
@@ -73,7 +75,10 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
     setupUserOnly();
     axiosMock
       .onGet("/api/ucsbdiningcommonsmenuitem/all")
-      .reply(200, ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem);
+      .reply(
+        200,
+        ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem,
+      );
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -95,14 +100,16 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
       "10",
     );
 
-    const createUCSBDiningCommonsMenuItemButton = screen.queryByText("Create UCSBDiningCommonsMenuItem");
+    const createUCSBDiningCommonsMenuItemButton = screen.queryByText(
+      "Create UCSBDiningCommonsMenuItem",
+    );
     expect(createUCSBDiningCommonsMenuItemButton).not.toBeInTheDocument();
 
     const name = screen.getByText("Baked Pesto Pasta with Chicken");
     expect(name).toBeInTheDocument();
 
     //const station = screen.getByText(
-      //"Entree Specials",
+    //"Entree Specials",
     //);
     //const station = screen.getByText("Entree Specials");
     const station = screen.getByText("Entrees");
@@ -113,10 +120,14 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
 
     // for non-admin users, details button is visible, but the edit and delete buttons should not be visible
     expect(
-      screen.queryByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-Delete-button"),
+      screen.queryByTestId(
+        "UCSBDiningCommonsMenuItemTable-cell-row-0-col-Delete-button",
+      ),
     ).not.toBeInTheDocument();
     expect(
-      screen.queryByTestId("UCSBDiningCommonsMenuItemTable-cell-row-0-col-Edit-button"),
+      screen.queryByTestId(
+        "UCSBDiningCommonsMenuItemTable-cell-row-0-col-Edit-button",
+      ),
     ).not.toBeInTheDocument();
   });
 
@@ -151,7 +162,10 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
 
     axiosMock
       .onGet("/api/ucsbdiningcommonsmenuitem/all")
-      .reply(200, ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem);
+      .reply(
+        200,
+        ucsbDiningCommonsMenuItemFixtures.threeucsbDiningCommonsMenuItem,
+      );
     axiosMock
       .onDelete("/api/ucsbdiningcommonsmenuitem")
       .reply(200, "UCSBDiningCommonsMenuItem with id 8 was deleted");
@@ -182,15 +196,20 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
     fireEvent.click(deleteButton);
 
     await waitFor(() => {
-      expect(mockToast).toBeCalledWith("UCSBDiningCommonsMenuItem with id 8 was deleted");
+      expect(mockToast).toBeCalledWith(
+        "UCSBDiningCommonsMenuItem with id 8 was deleted",
+      );
     });
 
     await waitFor(() => {
       expect(axiosMock.history.delete.length).toBe(1);
     });
-    expect(axiosMock.history.delete[0].url).toBe("/api/ucsbdiningcommonsmenuitem");
-    expect(axiosMock.history.delete[0].url).toBe("/api/ucsbdiningcommonsmenuitem");
+    expect(axiosMock.history.delete[0].url).toBe(
+      "/api/ucsbdiningcommonsmenuitem",
+    );
+    expect(axiosMock.history.delete[0].url).toBe(
+      "/api/ucsbdiningcommonsmenuitem",
+    );
     expect(axiosMock.history.delete[0].params).toEqual({ id: 8 });
   });
-  
 });
