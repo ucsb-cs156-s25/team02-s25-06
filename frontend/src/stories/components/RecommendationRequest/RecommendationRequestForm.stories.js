@@ -1,16 +1,14 @@
 import React from "react";
-import MenuItemReviewForm from "main/components/MenuItemReviews/MenuItemReviewForm";
-
-import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
-
+import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm";
+import { recommendationrequestFixtures } from "fixtures/recommendationrequestFixtures";
 
 export default {
-  title: "components/MenuItemReviews/MenuItemReviewForm",
-  component: MenuItemReviewForm,
+  title: "components/RecommendationRequest/RecommendationRequestForm",
+  component: RecommendationRequestForm,
 };
 
 const Template = (args) => {
-  return <MenuItemReviewForm {...args} />;
+  return <RecommendationRequestForm {...args} />;
 };
 
 export const Create = Template.bind({});
@@ -26,7 +24,7 @@ Create.args = {
 export const Update = Template.bind({});
 
 Update.args = {
-  initialContents: menuItemReviewFixtures.oneMIR,
+  initialContents: recommendationrequestFixtures.oneRecommendationRequest[0],
   buttonLabel: "Update",
   submitAction: (data) => {
     console.log("Submit was clicked with data: ", data);

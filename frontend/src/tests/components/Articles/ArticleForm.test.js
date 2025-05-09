@@ -1,8 +1,8 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import RestaurantForm from "main/components/Restaurants/RestaurantForm";
-import { restaurantFixtures } from "fixtures/restaurantFixtures";
+import ArticleForm from "main/components/Articles/ArticleForm";
+import { articleFixtures } from "fixtures/articleFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -13,17 +13,17 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedNavigate,
 }));
 
-describe("RestaurantForm tests", () => {
+describe("ArticleForm tests", () => {
   const queryClient = new QueryClient();
 
-  const expectedHeaders = ["Name", "Description"];
-  const testId = "RestaurantForm";
+  const expectedHeaders = ["Title", "URL", "Explanation", "Email"];
+  const testId = "ArticleForm";
 
   test("renders correctly with no initialContents", async () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm />
+          <ArticleForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -36,16 +36,38 @@ describe("RestaurantForm tests", () => {
     });
   });
 
-  test("renders correctly when passing in initialContents", async () => {
+  test("validates that localDateTime is required", async () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm initialContents={restaurantFixtures.oneRestaurant} />
+          <ArticleForm />
         </Router>
       </QueryClientProvider>,
     );
 
     expect(await screen.findByText(/Create/)).toBeInTheDocument();
+
+    const submitButton = screen.getByText(/Create/);
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(screen.getByText(/Date is required/)).toBeInTheDocument();
+    });
+  });
+
+  test("renders correctly when passing in initialContents", async () => {
+    render(
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <ArticleForm
+            initialContents={articleFixtures.oneArticle}
+            buttonLabel="Update"
+          />
+        </Router>
+      </QueryClientProvider>,
+    );
+
+    expect(await screen.findByText(/Update/)).toBeInTheDocument();
 
     expectedHeaders.forEach((headerText) => {
       const header = screen.getByText(headerText);
@@ -60,7 +82,7 @@ describe("RestaurantForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm />
+          <ArticleForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -76,7 +98,7 @@ describe("RestaurantForm tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <Router>
-          <RestaurantForm />
+          <ArticleForm />
         </Router>
       </QueryClientProvider>,
     );
@@ -85,15 +107,9 @@ describe("RestaurantForm tests", () => {
     const submitButton = screen.getByText(/Create/);
     fireEvent.click(submitButton);
 
-    await screen.findByText(/Name is required/);
-    expect(screen.getByText(/Description is required/)).toBeInTheDocument();
-
-    const nameInput = screen.getByTestId(`${testId}-name`);
-    fireEvent.change(nameInput, { target: { value: "a".repeat(31) } });
-    fireEvent.click(submitButton);
-
-    await waitFor(() => {
-      expect(screen.getByText(/Max length 30 characters/)).toBeInTheDocument();
-    });
+    await screen.findByText(/Title is required/);
+    expect(screen.getByText(/URL is required/)).toBeInTheDocument();
+    expect(screen.getByText(/Explanation is required/)).toBeInTheDocument();
+    expect(screen.getByText(/Email is required/)).toBeInTheDocument();
   });
 });
