@@ -17,7 +17,6 @@ export default function MenuItemReviewTable({
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-
     navigate(`/menuItemReview/edit/${cell.row.values.id}`);
   };
 
@@ -27,7 +26,6 @@ export default function MenuItemReviewTable({
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
     ["/api/menuItemReview/all"],
-
   );
   // Stryker restore all
 
