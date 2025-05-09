@@ -30,6 +30,8 @@ import edu.ucsb.cs156.example.services.CurrentUserService;
 import edu.ucsb.cs156.example.services.GrantedAuthoritiesService;
 import edu.ucsb.cs156.example.testconfig.TestConfig;
 
+import java.time.LocalDate;
+
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
@@ -61,7 +63,6 @@ public class RecommendationRequestIT {
                 // arrange
 
                 RecommendationRequest recommendationrequest = RecommendationRequest.builder()
-                                .id(1L)
                                 .requesterEmail("aryan@ucsb.edu")
                                 .professorEmail("blah@ucsb.edu")
                                 .explanation("INeed a recommendation for a job")
