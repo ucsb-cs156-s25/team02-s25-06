@@ -211,5 +211,6 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
       "/api/ucsbdiningcommonsmenuitem",
     );
     expect(axiosMock.history.delete[0].params).toEqual({ id: 8 });
+
   });
 });
