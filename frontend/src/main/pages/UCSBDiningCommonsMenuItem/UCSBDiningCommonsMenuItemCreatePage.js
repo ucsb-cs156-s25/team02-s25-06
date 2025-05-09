@@ -45,7 +45,6 @@ export default function UCSBDiningCommonsMenuItemCreatePage({
       <div className="pt-2">
         <h1>Create New Ucsbdiningcommonsmenuitem</h1>
         <UCSBDiningCommonsMenuItemForm submitAction={onSubmit} />
-
       </div>
     </BasicLayout>
   );

@@ -34,10 +34,8 @@ jest.mock("react-router-dom", () => {
   };
 });
 
-
 describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
   const axiosMock = new AxiosMockAdapter(axios);
-
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -50,7 +48,6 @@ describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
     axiosMock
       .onGet("/api/systemInfo")
       .reply(200, systemInfoFixtures.showingNeither);
-
   });
 
   const queryClient = new QueryClient();
@@ -80,7 +77,6 @@ describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
     axiosMock
       .onPost("/api/ucsbdiningcommonsmenuitem/post")
       .reply(202, UCSBDiningCommonsMenuItem);
-
 
     render(
       <QueryClientProvider client={queryClient}>
@@ -127,6 +123,5 @@ describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
       "New ucsbdiningcommonsmenuitem Created - id: 8 name: Baked Pesto Pasta with Chicken",
     );
     expect(mockNavigate).toBeCalledWith({ to: "/ucsbdiningcommonsmenuitem" });
-
   });
 });
