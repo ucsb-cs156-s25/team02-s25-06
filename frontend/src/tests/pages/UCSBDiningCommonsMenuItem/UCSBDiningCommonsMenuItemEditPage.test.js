@@ -65,9 +65,7 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
         </QueryClientProvider>,
       );
       await screen.findByText("Edit UCSBDiningCommonsMenuItem");
-      expect(
-        screen.queryByLabelText("name"),
-      ).not.toBeInTheDocument();
+      expect(screen.queryByLabelText("name")).not.toBeInTheDocument();
       restoreConsole();
     });
   });
@@ -145,7 +143,9 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
         "UCSBDiningCommonsMenuItem Updated - id: 8 name: Updated Baked Pesto Pasta with Chicken",
       );
 
-      expect(mockNavigate).toHaveBeenCalledWith({ to: "/ucsbdiningcommonsmenuitem" });
+      expect(mockNavigate).toHaveBeenCalledWith({
+        to: "/ucsbdiningcommonsmenuitem",
+      });
 
       expect(axiosMock.history.put.length).toBe(1); // times called
       expect(axiosMock.history.put[0].params).toEqual({ id: 8 });
@@ -159,4 +159,3 @@ describe("UCSBDiningCommonsMenuItemEditPage tests", () => {
     });
   });
 });
-

@@ -27,9 +27,12 @@ Default.parameters = {
       });
     }),
     http.get("/api/ucsbdiningcommonsmenuitem", () => {
-      return HttpResponse.json(ucsbDiningCommonsMenuItemFixtures.oneucsbDiningCommonsMenuItem[0], {
-        status: 200,
-      });
+      return HttpResponse.json(
+        ucsbDiningCommonsMenuItemFixtures.oneucsbDiningCommonsMenuItem[0],
+        {
+          status: 200,
+        },
+      );
     }),
     http.put("/api/ucsbdiningcommonsmenuitem", () => {
       return HttpResponse.json(
@@ -39,9 +42,8 @@ Default.parameters = {
           name: "Updated Baked Pesto Pasta with Chicken",
           station: "Updated Entree Specials",
         },
-        { status: 200 }
+        { status: 200 },
       );
     }),
   ],
 };
-
