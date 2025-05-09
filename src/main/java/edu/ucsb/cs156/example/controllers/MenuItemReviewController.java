@@ -36,7 +36,7 @@ import java.time.LocalDateTime;
  * This is a REST controller for MenuItemReview
  */
 @Tag(name = "MenuItemReview")
-@RequestMapping("/api/menuitemreview")
+@RequestMapping("/api/menuItemReview")
 @RestController
 @Slf4j
 

@@ -1,0 +1,24 @@
+{
+  "name": "team02-s25-06",
+  "version": "1.0.0",
+  "description": "Instructions: <https://ucsb-cs156.github.io/s25/lab/team02.html>",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucsb-cs156-s25/team02-s25-06.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ucsb-cs156-s25/team02-s25-06/issues"
+  },
+  "homepage": "https://github.com/ucsb-cs156-s25/team02-s25-06#readme"
+}

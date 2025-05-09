@@ -29,8 +29,7 @@
                       "nullable": false
                     },
                     "name": "ID",
-                    "type": "BIGINT",
-                    "autoIncrement": true
+                    "type": "BIGINT"
                   }
                 },
                 {
