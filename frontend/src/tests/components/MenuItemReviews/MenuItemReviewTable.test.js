@@ -43,7 +43,7 @@ describe("MenuItemReviewTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable menuItemReviews={[]} currentUser={currentUser} />
+          <MenuItemReviewTable menuItemReview={[]} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>,
     );
@@ -71,7 +71,7 @@ describe("MenuItemReviewTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewTable
-            menuItemReviews={menuItemReviewFixtures.threeMIRs}
+            menuItemReview={menuItemReviewFixtures.threeMIRs}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -133,7 +133,7 @@ describe("MenuItemReviewTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewTable
-            menuItemReviews={menuItemReviewFixtures.threeMIRs}
+            menuItemReview={menuItemReviewFixtures.threeMIRs}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -185,7 +185,7 @@ describe("MenuItemReviewTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewTable
-            menuItemReviews={menuItemReviewFixtures.threeMIRs}
+            menuItemReview={menuItemReviewFixtures.threeMIRs}
             currentUser={currentUser}
           />
         </MemoryRouter>
@@ -210,7 +210,7 @@ describe("MenuItemReviewTable tests", () => {
 
     // assert - check that the navigate function was called with the expected path
     await waitFor(() =>
-      expect(mockedNavigate).toHaveBeenCalledWith("/menuItemReviews/edit/1"),
+      expect(mockedNavigate).toHaveBeenCalledWith("/menuItemReview/edit/1"),
     );
   });
 
@@ -220,7 +220,7 @@ describe("MenuItemReviewTable tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
     axiosMock
-      .onDelete("/api/menuItemReviews")
+      .onDelete("/api/menuItemReview")
       .reply(200, { message: "Menu Item Review deleted" });
 
     // act - render the component
@@ -228,7 +228,7 @@ describe("MenuItemReviewTable tests", () => {
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <MenuItemReviewTable
-            menuItemReviews={menuItemReviewFixtures.threeMIRs}
+            menuItemReview={menuItemReviewFixtures.threeMIRs}
             currentUser={currentUser}
           />
         </MemoryRouter>

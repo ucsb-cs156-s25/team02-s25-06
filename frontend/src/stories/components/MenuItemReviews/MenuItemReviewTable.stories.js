@@ -16,25 +16,25 @@ const Template = (args) => {
 export const Empty = Template.bind({});
 
 Empty.args = {
-  menuItemReviews: [],
+  menuItemReview: [],
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-  menuItemReviews: menuItemReviewFixtures.threeMIRs,
+  menuItemReview: menuItemReviewFixtures.threeMIRs,
   currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-  menuItemReviews: menuItemReviewFixtures.threeMIRs,
+  menuItemReview: menuItemReviewFixtures.threeMIRs,
   currentUser: currentUserFixtures.adminUser,
 };
 
 ThreeItemsAdminUser.parameters = {
   msw: [
-    http.delete("/api/menuItemReviews", () => {
+    http.delete("/api/menuItemReview", () => {
       return HttpResponse.json({}, { status: 200 });
     }),
   ],

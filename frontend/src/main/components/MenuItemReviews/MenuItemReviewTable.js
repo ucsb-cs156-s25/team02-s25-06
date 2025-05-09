@@ -10,14 +10,14 @@ import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
 export default function MenuItemReviewTable({
-  menuItemReviews,
+  menuItemReview,
   currentUser,
   testIdPrefix = "MenuItemReviewTable",
 }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/menuItemReviews/edit/${cell.row.values.id}`);
+    navigate(`/menuItemReview/edit/${cell.row.values.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -25,7 +25,7 @@ export default function MenuItemReviewTable({
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/menuItemReviews/all"],
+    ["/api/menuItemReview/all"],
   );
   // Stryker restore all
 
@@ -70,6 +70,6 @@ export default function MenuItemReviewTable({
   }
 
   return (
-    <OurTable data={menuItemReviews} columns={columns} testid={testIdPrefix} />
+    <OurTable data={menuItemReview} columns={columns} testid={testIdPrefix} />
   );
 }
