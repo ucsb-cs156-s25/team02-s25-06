@@ -1,4 +1,4 @@
-# team02-s25-06
+# team02-s25-06 
 
 Instructions: <https://ucsb-cs156.github.io/s25/lab/team02.html>
 
@@ -13,7 +13,7 @@ TODO: Fill in this table with correct information.
 |---------------------------|--------------|-----------|
 | UCSBDiningCommonsMenuItem |              |           |
 | UCSBOrganization          |Timothy Nguyen| timothy878|
-| RecommendationRequest     |              |           |
+| RecommendationRequest     | Aryan Chopra |aryanchopra1802|
 | MenuItemReview            |  Yarwin Liu  | yarwinliu |
 | HelpRequest               |  Riya Gupta  |RiyaGupta1234|
 | Articles                  | Sanjana Jilla|sanjanajilla913|
