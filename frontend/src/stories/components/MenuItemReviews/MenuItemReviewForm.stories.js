@@ -3,7 +3,6 @@ import MenuItemReviewForm from "main/components/MenuItemReviews/MenuItemReviewFo
 
 import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 
-
 export default {
   title: "components/MenuItemReviews/MenuItemReviewForm",
   component: MenuItemReviewForm,
