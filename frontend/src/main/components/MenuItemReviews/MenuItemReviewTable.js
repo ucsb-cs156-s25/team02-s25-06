@@ -5,19 +5,19 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/ucsbOrganizationsUtils";
+} from "main/utils/menuItemReviewUtils";
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function UCSBOrganizationsTable({
-  UCSBOrganizations,
+export default function MenuItemReviewTable({
+  menuItemReviews,
   currentUser,
-  testIdPrefix = "UCSBOrganizationsTable",
+  testIdPrefix = "MenuItemReviewTable",
 }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/UCSBOrganizations/edit/${cell.row.values.id}`);
+    navigate(`/menuItemReviews/edit/${cell.row.values.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -25,7 +25,7 @@ export default function UCSBOrganizationsTable({
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/ucsborganizations/all"],
+    ["/api/menuItemReviews/all"],
   );
   // Stryker restore all
 
@@ -41,23 +41,24 @@ export default function UCSBOrganizationsTable({
     },
 
     {
-      Header: "Organization Code",
-      accessor: "orgCode",
+      Header: "ItemId",
+      accessor: "itemId",
     },
     {
-      Header: "Organization Translation Short",
-      accessor: "orgTranslationShort",
+      Header: "ReviewerEmail",
+      accessor: "reviewerEmail",
     },
     {
-      Header: "Organization Translation",
-      accessor: "orgTranslation",
+      Header: "Stars",
+      accessor: "stars",
     },
     {
-      // Stryker disable all
-      Header: "Inactive",
-      accessor: (row) => String(row.inactive),
-      id: "inactive",
-      // Stryker restore all
+      Header: "Comments",
+      accessor: "comments",
+    },
+    {
+      Header: "DateReviewed",
+      accessor: "dateReviewed",
     },
   ];
 
@@ -69,10 +70,6 @@ export default function UCSBOrganizationsTable({
   }
 
   return (
-    <OurTable
-      data={UCSBOrganizations}
-      columns={columns}
-      testid={testIdPrefix}
-    />
+    <OurTable data={menuItemReviews} columns={columns} testid={testIdPrefix} />
   );
 }

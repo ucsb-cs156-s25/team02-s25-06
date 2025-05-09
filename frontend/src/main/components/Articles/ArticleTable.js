@@ -5,19 +5,19 @@ import { useBackendMutation } from "main/utils/useBackend";
 import {
   cellToAxiosParamsDelete,
   onDeleteSuccess,
-} from "main/utils/ucsbOrganizationsUtils";
+} from "main/utils/articleUtils";
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function UCSBOrganizationsTable({
-  UCSBOrganizations,
+export default function ArticleTable({
+  articles,
   currentUser,
-  testIdPrefix = "UCSBOrganizationsTable",
+  testIdPrefix = "ArticleTable",
 }) {
   const navigate = useNavigate();
 
   const editCallback = (cell) => {
-    navigate(`/UCSBOrganizations/edit/${cell.row.values.id}`);
+    navigate(`/articles/edit/${cell.row.values.id}`);
   };
 
   // Stryker disable all : hard to test for query caching
@@ -25,7 +25,7 @@ export default function UCSBOrganizationsTable({
   const deleteMutation = useBackendMutation(
     cellToAxiosParamsDelete,
     { onSuccess: onDeleteSuccess },
-    ["/api/ucsborganizations/all"],
+    ["/api/articles/all"],
   );
   // Stryker restore all
 
@@ -41,23 +41,21 @@ export default function UCSBOrganizationsTable({
     },
 
     {
-      Header: "Organization Code",
-      accessor: "orgCode",
+      Header: "Title",
+      accessor: "title",
     },
     {
-      Header: "Organization Translation Short",
-      accessor: "orgTranslationShort",
+      Header: "URL ",
+      accessor: "url",
     },
     {
-      Header: "Organization Translation",
-      accessor: "orgTranslation",
+      Header: "Explanation",
+      accessor: "explanation",
     },
+
     {
-      // Stryker disable all
-      Header: "Inactive",
-      accessor: (row) => String(row.inactive),
-      id: "inactive",
-      // Stryker restore all
+      Header: "Email",
+      accessor: "email",
     },
   ];
 
@@ -68,11 +66,5 @@ export default function UCSBOrganizationsTable({
     );
   }
 
-  return (
-    <OurTable
-      data={UCSBOrganizations}
-      columns={columns}
-      testid={testIdPrefix}
-    />
-  );
+  return <OurTable data={articles} columns={columns} testid={testIdPrefix} />;
 }
