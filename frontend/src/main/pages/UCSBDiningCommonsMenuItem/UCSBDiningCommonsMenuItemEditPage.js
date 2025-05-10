@@ -1,48 +1,48 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import { useParams } from "react-router-dom";
-import MenuItemReviewForm from "main/components/MenuItemReviews/MenuItemReviewForm";
+import UCSBDiningCommonsMenuItemForm from "main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm";
 import { Navigate } from "react-router-dom";
 import { useBackend, useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
 
-export default function MenuItemReviewEditPage({ storybook = false }) {
+export default function UCSBDiningCommonsMenuItemEditPage({
+  storybook = false,
+}) {
   let { id } = useParams();
 
   const {
-    data: menuItemReview,
+    data: ucsbdiningcommonsmenuitem,
     _error,
     _status,
   } = useBackend(
     // Stryker disable next-line all : don't test internal caching of React Query
-    [`/api/menuItemReview?id=${id}`],
+    [`/api/ucsbdiningcommonsmenuitem?id=${id}`],
     {
       // Stryker disable next-line all : GET is the default, so mutating this to "" doesn't introduce a bug
       method: "GET",
-      url: `/api/menuItemReview`,
+      url: `/api/ucsbdiningcommonsmenuitem`,
       params: {
         id,
       },
     },
   );
 
-  const objectToAxiosPutParams = (menuItemReview) => ({
-    url: "/api/menuItemReview",
+  const objectToAxiosPutParams = (ucsbdiningcommonsmenuitem) => ({
+    url: "/api/ucsbdiningcommonsmenuitem",
     method: "PUT",
     params: {
-      id: menuItemReview.id,
+      id: ucsbdiningcommonsmenuitem.id,
     },
     data: {
-      itemId: menuItemReview.itemId,
-      reviewerEmail: menuItemReview.reviewerEmail,
-      stars: menuItemReview.stars,
-      comments: menuItemReview.comments,
-      dateReviewed: menuItemReview.dateReviewed,
+      diningCommonsCode: ucsbdiningcommonsmenuitem.diningCommonCode,
+      name: ucsbdiningcommonsmenuitem.name,
+      station: ucsbdiningcommonsmenuitem.station,
     },
   });
 
-  const onSuccess = (menuItemReview) => {
+  const onSuccess = (ucsbdiningcommonsmenuitem) => {
     toast(
-      `MenuItemReview Updated - id: ${menuItemReview.id} itemId: ${menuItemReview.itemId}`, // - id: ${menuItemReview.id} itemId: ${menuItemReview.itemId}
+      `UCSBDiningCommonsMenuItem Updated - id: ${ucsbdiningcommonsmenuitem.id} name: ${ucsbdiningcommonsmenuitem.name}`,
     );
   };
 
@@ -50,7 +50,7 @@ export default function MenuItemReviewEditPage({ storybook = false }) {
     objectToAxiosPutParams,
     { onSuccess },
     // Stryker disable next-line all : hard to set up test for caching
-    [`/api/menuItemReview?id=${id}`],
+    [`/api/ucsbdiningcommonsmenuitem?id=${id}`],
   );
 
   const { isSuccess } = mutation;
@@ -60,18 +60,18 @@ export default function MenuItemReviewEditPage({ storybook = false }) {
   };
 
   if (isSuccess && !storybook) {
-    return <Navigate to="/menuItemReview" />;
+    return <Navigate to="/ucsbdiningcommonsmenuitem" />;
   }
 
   return (
     <BasicLayout>
       <div className="pt-2">
-        <h1>Edit Menu Item Review</h1>
-        {menuItemReview && (
-          <MenuItemReviewForm
+        <h1>Edit UCSBDiningCommonsMenuItem</h1>
+        {ucsbdiningcommonsmenuitem && (
+          <UCSBDiningCommonsMenuItemForm
             submitAction={onSubmit}
             buttonLabel={"Update"}
-            initialContents={menuItemReview}
+            initialContents={ucsbdiningcommonsmenuitem}
           />
         )}
       </div>

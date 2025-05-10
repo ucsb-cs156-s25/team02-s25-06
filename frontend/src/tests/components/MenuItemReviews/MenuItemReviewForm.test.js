@@ -107,6 +107,16 @@ describe("MenuItemReviewForm tests", () => {
       ).toBeInTheDocument();
     });
 
+    const nInput = screen.getByTestId(`${testId}-itemId`);
+    fireEvent.change(nInput, { target: { value: "-1" } });
+    fireEvent.click(submitButton);
+
+    await waitFor(() => {
+      expect(
+        screen.getByText(/itemId: must be at least 0/),
+      ).toBeInTheDocument();
+    });
+
     const nameInput2 = screen.getByTestId(`${testId}-reviewerEmail`);
     fireEvent.change(nameInput2, { target: { value: "a".repeat(256) } });
     fireEvent.click(submitButton);
